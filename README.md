@@ -4,9 +4,13 @@
 - pip3 install "python-jose[cryptography]"
 - pip3 install alembic
 
+- python3 --version
+- python3  -m venv venv
+- source venv/bin/activate  
 - pip3 install -r requirements.txt
+- uvicorn app.main:app --reload
 
-psql -h localhost -p 5432 -U postgres -d fastapi
+- psql -h localhost -p 5432 -U postgres -d fastapi
 
 
 ```
