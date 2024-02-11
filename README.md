@@ -6,11 +6,24 @@
 
 - python3 --version
 - python3  -m venv venv
-- source venv/bin/activate  
-- pip3 install -r requirements.txt
+- source venv/bin/activate 
+
+- sudo python3 -m ensurepip --upgrade
+- sudo yum install postgresql-devel
+- sudo yum groupinstall 'Development Tools'
+- sudo yum install python3-devel
+- sudo pip3 install --upgrade awscli
+- sudo pip3 install -r requirements.txt
+- sudo uvicorn app.main:app --host 0.0.0.0 --port 80 &
+- sudo uvicorn app.main:app --host 0.0.0.0 --port 80 --forwarded-allow-ips '*' &
+  https://stackoverflow.com/questions/63511413/fastapi-redirection-for-trailing-slash-returns-non-ssl-link
 - uvicorn app.main:app --reload
+- python3 -m ensurepip --upgrade
+- 
+
 
 - psql -h localhost -p 5432 -U postgres -d fastapi
+- sudo yum install postgresql15
 
 
 ```
@@ -72,4 +85,28 @@ INFO  [alembic.runtime.migration] Will assume transactional DDL.
 
 
 
+```
+```
+(venv) snehanshu.suman@LT7818 posts-api % pip3 install -t dependencies -r requirements.txt
+(venv) snehanshu.suman@LT7818 posts-api % cd dependencies
+(venv) snehanshu.suman@LT7818 posts-api % zip ../aws_lambda_artifact.zip -r .                                                                        
+(venv) snehanshu.suman@LT7818 dependencies % cd ..
+(venv) snehanshu.suman@LT7818 posts-api % zip -g ./aws_lambda_artifact.zip -r app -x "app/venv*" -x "app/__pycache__*" -x "app/routers/__pycache__*"
+
+  adding: app/ (stored 0%)
+  adding: app/routers/ (stored 0%)
+  adding: app/routers/auth.py (deflated 52%)
+  adding: app/routers/post.py (deflated 73%)
+  adding: app/routers/user.py (deflated 51%)
+  adding: app/routers/health.py (deflated 15%)
+  adding: app/routers/vote.py (deflated 60%)
+  adding: app/config.py (deflated 49%)
+  adding: app/models.py (deflated 66%)
+  adding: app/oauth2.py (deflated 55%)
+  adding: app/database.py (deflated 51%)
+  adding: app/__init__.py (stored 0%)
+  adding: app/schemas.py (deflated 65%)
+  adding: app/utils.py (deflated 47%)
+  adding: app/main.py (deflated 54%)
+(venv) snehanshu.suman@LT7818 posts-api % zip -g ./aws_lambda_artifact.zip -r .env       
 ```

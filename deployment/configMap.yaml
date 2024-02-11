@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fastapi-config
+data:
+  DATABASE_HOSTNAME: "fastapi.c9gugga4g0vv.us-east-1.rds.amazonaws.com"
+  DATABASE_PORT: "5432"
+  DATABASE_NAME: "fastapi"
+  ALGORITHM: "HS256"
+  ACCESS_TOKEN_EXPIRE_MINUTES: "30"
+  DATABASE_USERNAME: "postgres"
+  DATABASE_PASSWORD: "password123"
+  SECRET_KEY: "14cbfb5d8d5a5c1ac166af5376672adae8168e100b8a3f2f9fe8c7023a65e218"
